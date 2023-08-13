@@ -1,0 +1,142 @@
+.mv_box{
+    width: 200px;
+    position: relative
+}
+
+.mv_box .img_box{
+    width: 200px;
+    height: 290px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+}
+
+.mv_box h3 span{
+    color: rgba(187, 187, 187, 0.788);
+    font-weight: lighter;
+}
+
+img{
+    max-width: 100%;
+}
+
+.category, .box{
+    background-color: rgba(27,27,27, 0.6);
+}
+
+.cat_sliders, .cont_box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 20px;
+    right: 0px;
+}
+
+.cont_box{
+    flex-wrap: wrap;
+}
+
+.category h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.mv_details{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 290px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.mv_box:hover .mv_details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    
+}
+
+.mv_details > a{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 2px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.507);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 500ms color ease;
+}
+
+.back{
+    background: rgba(245, 245, 245, 0.719);
+    width:0;
+    position: absolute;
+    height: 100%;
+    transition: 500ms all ease;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.mv_details > a span{
+    z-index: 1;
+}
+
+.mv_details > a:hover{
+    color: black;
+}
+
+.mv_details > a:hover .back{
+    visibility: visible;
+    width: 100%;
+    background: rgb(245, 245, 245);
+}
+
+.controls i{
+    font-size: 35px;
+    cursor: pointer;
+    border-radius: 30%;
+    transition: 300ms all ease-in-out;
+}
+
+.controls i:hover{
+    font-size: 45px;
+}
+
+.controls a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tags{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tags span{
+    background-color: rgba(53, 53, 53, 0.377);
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    z-index: 10;
+}

@@ -1,0 +1,126 @@
+
+.video_section{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+}
+
+.video_box{
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: -100;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video_box::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: linear-gradient(270deg, rgba(36, 36, 36, 0.171) 10%, rgba(12, 12, 12, 0.76));
+}
+
+.details{
+    display: flex;
+}
+
+.details{
+    
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.details div{
+    margin: 20px;
+}
+
+.details img{
+    max-width: 60%;
+}
+
+.ratings span, .ratings span i{
+    font-size: 35px;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls i{
+    font-size: 35px;
+    cursor: pointer;
+    border-radius: 30%;
+    padding: 10px;
+    transition: 300ms all ease-in-out;
+}
+
+.controls i:hover{
+    font-size: 45px;
+}
+
+.controls a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls .fa-circle-play{
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+    
+}
+
+.controls a span{
+    border-bottom: 1px solid whitesmoke;
+}
+
+.watched{
+    width: 400px;
+    height: 5px;
+    border-radius: 50px;
+    background-color: rgba(245, 245, 245, 0.575);
+}
+
+.watched section{
+    width: 40%;
+    background-color: whitesmoke;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.tags{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tags span{
+    background-color: rgba(53, 53, 53, 0.377);
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.related h1{
+    border-bottom: 1px solid rgba(228, 228, 228, 0.301);
+}
+
+.movies_related{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}

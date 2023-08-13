@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block title %}ONTIME{% endblock %}
+
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="../../static/stylesheets/movie.css">
+<link rel="stylesheet" href="../../static/stylesheets/movies_section.css">
+<link rel="stylesheet" href="../../static/stylesheets/movie_medias.css">
+<link rel="stylesheet" href="../../static/movies/headers.css">
+
+
+<div class="categories_box">
+
+    <script type="module">
+
+      import {movies_header, category_box, movie_box} from '../../static/movies/components.js';
+
+        const content = document.querySelector('.content');
+
+        const box = document.querySelector('.categories_box');
+
+        let categories = (async function fetch_categories() {
+            const categories_api = await fetch("http://127.0.0.1:8000/apis/categories_api/");
+            const categories = await categories_api.json();
+            const movies_api = await fetch("http://127.0.0.1:8000/apis/movies_api/");
+            const movies = await movies_api.json();
+
+            let special_movie = movies[Math.floor(Math.random()*movies.length)];
+
+            box.innerHTML += movies_header(special_movie);
+
+            for ( let category of categories ){
+                
+                box.innerHTML += category_box(category);
+
+                let single_cat = document.querySelector(`.${category.name}`);
+
+                for ( let movi of movies){
+
+                    if (movi.category == category.id){
+                      single_cat.innerHTML += movie_box(movi);
+                    }
+                }
+
+            }
+        })();  
+
+    </script>
+
+    <script type="module" src="../../static/movies/swiper.js"></script>
+    
+</div>
+
+{% endblock %}

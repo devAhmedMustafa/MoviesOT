@@ -1,0 +1,239 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+:root{
+    --main: rgb(182, 3, 3);
+}
+
+.stream_box{
+    position: relative;
+}
+
+.stream_box.fullscreen{
+    max-width: 100%;
+    width: 100%
+}
+
+.stream_box video{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: fixed;
+    z-index: -1;
+}
+
+.controls{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 500ms ease;
+}
+
+.stream_box.show-controls .controls{
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+    transition: all 330ms ease;
+}
+
+.controls > *{
+    position: absolute;
+}
+
+.controls button{
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    
+    border-radius: 100%;
+}
+
+.play{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.skip{
+    top: 50%;
+    font-size: 65px;
+    transform: translateY(-50%);
+}
+
+.forward-10{
+    right: 35%;
+}
+
+.backward-10{
+    left: 35%;
+}
+
+.play i, .pause i{
+    font-size: 150px;
+}
+
+.close{
+    right: 1%;
+    top: 2%;
+    font-size: 25px;
+}
+
+.title{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 16px;
+    color: white;
+}
+
+.screen{
+    right: 4%;
+    top: 2%;
+    font-size: 25px;
+}
+
+.timeline{
+    width: 100%;
+    bottom: 5%;
+}
+
+.progress{
+    width: 100%;
+    height: 5px;
+    background-color: rgba(119, 119, 119, 0.438);
+    cursor: pointer;
+}
+
+.progress-bar{
+    width: 0;
+    height: 100%;
+    background-color: var(--main);
+    border-radius: 50px;
+    position: relative;
+    transition: all 250ms ease;
+    cursor: pointer;
+}
+
+.circ{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0px;
+    height: 0px;
+    background-color: var(--main);
+    border-radius: 0%;
+    transition: all 200ms;
+}
+
+.progress:hover .circ{
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+}
+
+.time_guide{
+    position: absolute;
+    bottom: 1.5%;
+    left:2%;
+    color:white;
+}
+
+.volume{
+    bottom: 1.2%;
+    right: 2%;
+    color: black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.volume i{
+    z-index: 10;
+    cursor: pointer;
+}
+
+.volume .level{
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    left: 0;
+    z-index: 0;
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 5rem;
+  }
+  
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
+  }
+  
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #404040;
+    border-radius: 0.3rem;
+    height: 0.5rem;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: 0px; /* Centers thumb on the track */
+    background-color: #f0f8ff;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+  
+  input[type="range"]:focus::-webkit-slider-thumb {
+    outline:none;
+  }
+  
+  /*********** Firefox styles ***********/
+  /* slider track */
+  input[type="range"]::-moz-range-track {
+    background-color: #404040;
+    border-radius: 0.3rem;
+    height: 0.5rem;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #f0f8ff;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+  
+  input[type="range"]:focus::-moz-range-thumb{
+    outline: none;
+    outline-offset:0;
+  }
+
+video::cue{
+    position: absolute;
+    background-color: #1818187c;
+    font-size: 30px;
+}
+

@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+
+{% block title %}{{vid.title}}{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="../../static/stylesheets/movie.css">
+<link rel="stylesheet" href="../../static/stylesheets/movies_section.css">
+<link rel="stylesheet" href="../../static/stylesheets/movie_medias.css">
+
+<div class="video_section">
+
+    <script type="module">
+
+        import { trailer } from '../../static/movies/components.js';
+        
+        let movie = (async function get_movie(query){
+
+            const url = `http://127.0.0.1:8000/apis/movie${query}`;
+            const movie_api = await fetch(url);
+            const movie = await movie_api.json();
+
+            document.querySelector('.video_section').innerHTML += trailer(movie);
+
+        })(location.pathname);
+
+    </script>
+
+</div>
+
+<div class="related">
+
+    <h1>Related</h1>
+    <br>
+
+    <div class="movies_related">
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/wallpaperflare.com_wallpaper_18.jpg"></div>
+            <h3 class="title">Spider-Man Into The Spider Verse <span>(2018)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/homemaranhanowayhome_1-1024x576.jpg"></div>
+            <h3 class="title">Spider-Man No Way Home <span>(2022)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/R.jpg"></div>
+            <h3 class="title">The Amazing Spider-Man 2 <span>(2022)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/R (1).jpg"></div>
+            <h3 class="title">Captain America: Civil War <span>(2016)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/wallpaperflare.com_wallpaper_17.jpg"></div>
+            <h3 class="title">Iron Man <span>(2008)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/R.png"></div>
+            <h3 class="title">Avengers: Infinity-War <span>(2018)</span></h3>
+        </div>
+
+        <div class="mv_box">
+            <div class="img_box"><img src="../../static/images/R (2).jpg"></div>
+            <h3 class="title">Avengers: End-Game <span>(2019)</span></h3>
+        </div>
+
+</div>
+
+{% endblock %}
